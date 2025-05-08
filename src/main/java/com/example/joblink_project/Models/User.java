@@ -1,5 +1,4 @@
 package com.example.joblink_project.Models;
-
 import com.example.joblink_project.Enum.Role;
 import jakarta.persistence.*;
 import lombok.*;
@@ -7,6 +6,8 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "Users")
@@ -47,4 +48,7 @@ public class User {
 
     @UpdateTimestamp
     private LocalDateTime updated_at;
+
+    @OneToMany(mappedBy = "user")
+    private List<Notification> notifications = new ArrayList<>();
 }

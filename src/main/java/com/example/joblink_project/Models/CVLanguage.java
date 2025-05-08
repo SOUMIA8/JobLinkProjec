@@ -21,4 +21,5 @@ public class CVLanguage {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cv_id", nullable = false)
     private CV cv;
+
 }

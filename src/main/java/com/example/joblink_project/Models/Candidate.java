@@ -29,4 +29,9 @@ public class Candidate extends User {
     @OneToMany(mappedBy = "candidate", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Review> reviews = new ArrayList<>();
 
+
+
+    @OneToMany(mappedBy = "candidate")
+    private List<CV>cvs = new ArrayList<>();
+
 }

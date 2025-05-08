@@ -1,11 +1,11 @@
 package com.example.joblink_project.Models;
-
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "CVs")
@@ -52,4 +52,18 @@ public class CV {
     @JoinColumn(name = "candidate_id", nullable = false)
     private Candidate candidate;
 
+    @OneToMany(mappedBy = "cv", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Formation> formations = new ArrayList<>();
+
+    @OneToMany(mappedBy = "cv", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Experience> experiences = new ArrayList<>();
+
+    @OneToMany(mappedBy = "cv", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Skill> skills = new ArrayList<>();
+
+    @OneToMany(mappedBy = "cv", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Education> educations= new ArrayList<>();
+
+    @OneToMany(mappedBy = "cv", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<CVLanguage> cvLanguages = new ArrayList<>();
 }

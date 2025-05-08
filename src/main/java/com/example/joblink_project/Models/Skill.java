@@ -22,7 +22,6 @@ public class Skill {
     private CV cv;
 
     // Méthode helper pour la relation bidirectionnelle
-
     /*public void associateWithCV(CV cv) {
         this.cv = cv;
         cv.getSkills().add(this);

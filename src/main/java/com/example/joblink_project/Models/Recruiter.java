@@ -27,4 +27,5 @@ public class Recruiter extends User {
     @OneToMany(mappedBy = "recruiter", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Offer> offers = new ArrayList<>();
 
+
 }

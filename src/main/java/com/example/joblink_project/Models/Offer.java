@@ -47,9 +47,7 @@ public class Offer {
     private Boolean isApproved = false;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(
-            name = "recruiterId"
-    )
+    @JoinColumn(name = "recruiter_id")
     private Recruiter recruiter;
 
     @OneToMany(mappedBy = "offer")

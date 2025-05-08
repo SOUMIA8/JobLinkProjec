@@ -30,8 +30,9 @@ public class Notification {
     private LocalDate date;
 
     //Relations
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="user_id")
     private User user;
+
 
 }
