@@ -1,5 +1,6 @@
 package com.example.joblink_project.Models;
 import com.example.joblink_project.Enum.Role;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -14,6 +15,8 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+
 @Inheritance(strategy = InheritanceType.JOINED)
 public class User {
     @Id
