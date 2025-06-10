@@ -22,8 +22,31 @@ public class Formation {
     @JoinColumn(name = "cv_id", nullable = false)
     private CV cv;
 
+    public CV getCv() {
+        return cv;
+    }
 
-    /*public void addToCV(CV cv) {
+    public void setCv(CV cv) {
+        this.cv = cv;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+/*public void addToCV(CV cv) {
         this.setCv(cv);
         cv.getFormations().add(this);
     }*/

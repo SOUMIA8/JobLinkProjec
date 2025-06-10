@@ -21,7 +21,30 @@ public class Skill {
     @JoinColumn(name = "cv_id", nullable = false)
     private CV cv;
 
-    // Méthode helper pour la relation bidirectionnelle
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public CV getCv() {
+        return cv;
+    }
+
+    public void setCv(CV cv) {
+        this.cv = cv;
+    }
+// Méthode helper pour la relation bidirectionnelle
     /*public void associateWithCV(CV cv) {
         this.cv = cv;
         cv.getSkills().add(this);

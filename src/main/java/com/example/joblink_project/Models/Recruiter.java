@@ -1,5 +1,6 @@
 package com.example.joblink_project.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -12,6 +13,8 @@ import java.util.List;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @PrimaryKeyJoinColumn(name = "user_id")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+
 public class Recruiter extends User {
 
     @Column(name = "company_name", nullable = false, length = 255)
@@ -27,5 +30,35 @@ public class Recruiter extends User {
     @OneToMany(mappedBy = "recruiter", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Offer> offers = new ArrayList<>();
 
+    public List<Offer> getOffers() {
+        return offers;
+    }
 
+    public void setOffers(List<Offer> offers) {
+        this.offers = offers;
+    }
+
+    public String getCompanySize() {
+        return companySize;
+    }
+
+    public void setCompanySize(String companySize) {
+        this.companySize = companySize;
+    }
+
+    public String getCompanyWebsite() {
+        return companyWebsite;
+    }
+
+    public void setCompanyWebsite(String companyWebsite) {
+        this.companyWebsite = companyWebsite;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
 }

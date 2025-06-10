@@ -1,5 +1,6 @@
 package com.example.joblink_project.Models;
 import com.example.joblink_project.Enum.ApplicationStatus;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
@@ -10,6 +11,7 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "Applications")
 @Data
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Application {
 
     @Id
@@ -31,4 +33,44 @@ public class Application {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "offer_id", nullable = false)
     private Offer offer;
+
+    public Offer getOffer() {
+        return offer;
+    }
+
+    public void setOffer(Offer offer) {
+        this.offer = offer;
+    }
+
+    public User getCandidate() {
+        return candidate;
+    }
+
+    public void setCandidate(User candidate) {
+        this.candidate = candidate;
+    }
+
+    public LocalDateTime getApplicationDate() {
+        return applicationDate;
+    }
+
+    public void setApplicationDate(LocalDateTime applicationDate) {
+        this.applicationDate = applicationDate;
+    }
+
+    public ApplicationStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(ApplicationStatus status) {
+        this.status = status;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }
